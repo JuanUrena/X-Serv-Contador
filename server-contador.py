@@ -15,6 +15,7 @@ import socket
 mySocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 #Comprobamos si está en uso el puerto
 mySocket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+
 #Atamos al puerto
 name=socket.gethostname()
 mySocket.bind((name, 1234))
