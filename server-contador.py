@@ -12,6 +12,8 @@ import contador
 import socket
 import random 
 
+dic_Contador{}
+
 #Creamos TCP socket
 mySocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 #Comprobamos si está en uso el puerto
