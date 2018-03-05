@@ -10,6 +10,7 @@ SAT(URJC)
 import sys
 import contador
 import socket
+import random 
 
 #Creamos TCP socket
 mySocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -36,9 +37,10 @@ while True:
     request=str(recvSocket.recv(2048), 'utf-8')
     resource=request.split()[1]
     print(resource)
-    if resource=='/contador':
-        status=str(contador.contador())
-        answer=("HTTP/1.1 200 OK\r\n\r\n"+"<html><body><h1>Contador Online</h1>" + status + "</body></html>" + "\r\n")
+   
+    if resource=='/contador':      
+        URL = "/contador/"+str(random.randrange(999999999))
+        answer=("HTTP/1.1 200 OK\r\n\r\n"+"<html><body><h1>Contador Online</h1> <a href="+URL+"> Este es tu contador</a> </body></html>" + "\r\n")
     else:
         answer=("HTTP/1.1 404 NOT FOUND\r\n\r\n" +"<html><body><h1>Contador Online</h1>" +'Recurso no encontrado' + "</body></html>" +"\r\n")
     recvSocket.send(bytes(answer, 'utf-8'))

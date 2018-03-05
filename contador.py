@@ -9,10 +9,7 @@ SAT(URJC)
 
 import sys
 
-status=0
-
-def contador():
-    global status
+def contador(status):
     if status==0:
         status=5
     else:
